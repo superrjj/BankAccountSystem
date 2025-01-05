@@ -22,9 +22,16 @@ namespace BankAccountSystem
             this.loginForm = loginForm;
         }
 
+        // Public property to expose txtEmailAdd
+        public string GetEmail()
+        {
+            return txtEmailAdd.Text;
+        }
+
+
         private void picBack_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
+            Login login = new Login(this);
             login.Show();
             this.Hide();
         }
@@ -71,7 +78,7 @@ namespace BankAccountSystem
                 return;
             }
 
-            if (!IsValidUsername(username))
+            if (!IsValidName(username))
             {
                 MessageBox.Show("Fullname can only contain letters", "Invalid Name", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -125,7 +132,7 @@ namespace BankAccountSystem
 
                     MessageBox.Show($"Registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    Login login = new Login();
+                    Login login = new Login(this);
                     login.Show();
                     this.Hide();
                 }

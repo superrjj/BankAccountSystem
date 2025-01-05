@@ -14,10 +14,12 @@ namespace BankAccountSystem
     public partial class Login : Form
     {
         SqlConnection connect = new SqlConnection(@"Data Source=MSI\SQLEXPRESS;Initial Catalog=BankDatabase;Integrated Security=True;Encrypt=False");
-
-        public Login()
+        private NewAccount newAcc;
+        
+        public Login(NewAccount newAcc)
         {
             InitializeComponent();
+            this.newAcc = newAcc;
         }
 
 
@@ -37,7 +39,7 @@ namespace BankAccountSystem
         {
 
             string username = txtUsername.Text;
-            string email = txtEmailAdd.Text;
+            string email = newAcc.GetEmail();
             string password = txtPassword.Text;
 
             // Validate input
@@ -75,7 +77,7 @@ namespace BankAccountSystem
                     MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Navigate to the main application or dashboard
-                    MainForm mainForm = new MainForm();
+                    HomePage mainForm = new HomePage();
                     mainForm.Show();
                     this.Hide();
                 }

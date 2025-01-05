@@ -16,7 +16,8 @@ namespace BankAccountSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            NewAccount newAccount = new NewAccount(null); // Pass null or another valid Login instance if required
+            Application.Run(new Login(newAccount));
         }
     }
 }
