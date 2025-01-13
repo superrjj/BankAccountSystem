@@ -37,13 +37,11 @@ namespace BankAccountSystem
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
-            string username = txtUsername.Text;
-            string email = newAcc.GetEmail();
+            string usernameOrEmail = txtUsername.Text;
             string password = txtPassword.Text;
 
             // Validate input
-            if (string.IsNullOrWhiteSpace(username) && string.IsNullOrWhiteSpace(email))
+            if (string.IsNullOrWhiteSpace(usernameOrEmail))
             {
                 MessageBox.Show("Please enter your username or email.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -55,19 +53,27 @@ namespace BankAccountSystem
                 return;
             }
 
+            // Determine if the input is an email or a username
+            bool isEmail = IsValidEmail(usernameOrEmail);
+
             try
             {
                 connect.Open();
 
                 // Query to check username/email and password
-                string query = @"
-                SELECT COUNT(*) 
-                FROM UserAccount 
-                WHERE (Username = @Username OR Email = @Email) AND Password = @Password";
+                string query = isEmail
+                    ? "SELECT COUNT(*) FROM UserAccount WHERE Email = @Email AND Password = @Password"
+                    : "SELECT COUNT(*) FROM UserAccount WHERE Username = @Username AND Password = @Password";
 
                 SqlCommand cmd = new SqlCommand(query, connect);
-                cmd.Parameters.AddWithValue("@Username", username);
-                cmd.Parameters.AddWithValue("@Email", email);
+                if (isEmail)
+                {
+                    cmd.Parameters.AddWithValue("@Email", usernameOrEmail);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Username", usernameOrEmail);
+                }
                 cmd.Parameters.AddWithValue("@Password", password);
 
                 int userExists = (int)cmd.ExecuteScalar();
@@ -93,6 +99,20 @@ namespace BankAccountSystem
             finally
             {
                 connect.Close();
+            }
+        }
+
+        // Helper method to validate email
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
             }
 
         }
