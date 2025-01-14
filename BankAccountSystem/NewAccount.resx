@@ -120,16 +120,16 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="picBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAHlSURBVHhe7d3BahNRFIfxWn0OF13UpaBCfWZbuuqiu76N
-        rqoFkRTk9F+SCYhnBprSmfFDvh+cTcidxXzk3mwmOTqSJEn6XyV51V/TP5DkbaouUnWXqk2qrpO87+/T
-        CpKcpep7Hh7y11T9NMrK9jHuRjH+RLnua7SQJ2MMQTaeKys4KMYQ5Fdfq5kdHGMIctnXa0bPjPEjyUm/
-        hmaS5OPkt6mp2UZLzvo1NBNjgBgDxBggxgAxBogxQIwBYgwQY4AYA8QYIMYAMQaIMUCMAWIMEGOAGAPE
-        GCDGADEGiDFAjAFiDBBjgBgDxBggxgAxBogxQIwBYgwQY4Akebd7PKzf+KkxxvJSdT668VNjjHWk6tvo
-        5vcxxnpS9XUUoM8Q5HNfqwWk6ssowNT4KVlHklMPdZgkH1J1OwowNW5f6zAKkFGAjAJkFCCjABkFyChA
-        RgEyCpBRgIwCZBQgowAZBcgoQEYBMgqQUYCMAmQUIKMAGQXIKEBGATIKkFGAjAJkFCCjABkFyChARgEy
-        CtD2cbndze4Bpmb469XTfg3N7JlRrvp6LeDg7avqPsnrvl4LOChK1e8kb/paLeTJ7avqpq/RwvZRxs/R
-        V22SfOrv1wr2P25wtTsztttU1Y0xAJIce4hLkqQXeQSjE4H7JseaZAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EQAACxEBf2RfkQAAAeVJREFUeF7t3cFqE1EUh/FafQ4XXdSloEJ9Zlu66qK7vo2uqgWRFOT0X5IJiGcG
+        mtKZ8UO+H5xNyJ3FfOTebCY5OpIkSfpfJXnVX9M/kORtqi5SdZeqTaquk7zv79MKkpyl6nseHvLXVP00
+        ysr2Me5GMf5Eue5rtJAnYwxBNp4rKzgoxhDkV1+rmR0cYwhy2ddrRs+M8SPJSb+GZpLk4+S3qanZRkvO
+        +jU0E2OAGAPEGCDGADEGiDFAjAFiDBBjgBgDxBggxgAxBogxQIwBYgwQY4AYA8QYIMYAMQaIMUCMAWIM
+        EGOAGAPEGCDGADEGiDFAjAFiDBBjgCR5t3s8rN/4qTHG8lJ1PrrxU2OMdaTq2+jm9zHGelL1dRSgzxDk
+        c1+rBaTqyyjA1PgpWUeSUw91mCQfUnU7CjA1bl/rMAqQUYCMAmQUIKMAGQXIKEBGATIKkFGAjAJkFCCj
+        ABkFyChARgEyCpBRgIwCZBQgowAZBcgoQEYBMgqQUYCMAmQUIKMAGQXIKEBGATIK0PZxud3N7gGmZvjr
+        1dN+Dc3smVGu+not4ODtq+o+yeu+Xgs4KErV7yRv+lot5Mntq+qmr9HC9lHGz9FXbZJ86u/XCvY/bnC1
+        OzO221TVjTEAkhx7iEuSpBd5BKMTgfsmx5pkAAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="panelElipse.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

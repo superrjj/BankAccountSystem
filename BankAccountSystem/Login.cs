@@ -61,29 +61,31 @@ namespace BankAccountSystem
                 connect.Open();
 
                 // Query to check username/email and password
-                string query = isEmail
-                    ? "SELECT COUNT(*) FROM UserAccount WHERE Email = @Email AND Password = @Password"
-                    : "SELECT COUNT(*) FROM UserAccount WHERE Username = @Username AND Password = @Password";
+                string fullName = null;
+                string getFullNameQuery = isEmail
+                    ? "SELECT Name FROM Account WHERE Email = @Email AND Password = @Password"
+                    : "SELECT Name FROM Account WHERE Username = @Username AND Password = @Password";
 
-                SqlCommand cmd = new SqlCommand(query, connect);
+                SqlCommand nameCmd = new SqlCommand(getFullNameQuery, connect);
                 if (isEmail)
                 {
-                    cmd.Parameters.AddWithValue("@Email", usernameOrEmail);
+                    nameCmd.Parameters.AddWithValue("@Email", usernameOrEmail);
                 }
                 else
                 {
-                    cmd.Parameters.AddWithValue("@Username", usernameOrEmail);
+                    nameCmd.Parameters.AddWithValue("@Username", usernameOrEmail);
                 }
-                cmd.Parameters.AddWithValue("@Password", password);
+                nameCmd.Parameters.AddWithValue("@Password", password);
 
-                int userExists = (int)cmd.ExecuteScalar();
-
-                if (userExists > 0)
+                object result = nameCmd.ExecuteScalar();
+                if (result != null)
                 {
-                    MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    fullName = result.ToString();
+                }
 
-                    // Navigate to the main application or dashboard
-                    HomePage mainForm = new HomePage();
+                if (fullName != null)
+                {
+                    HomePage mainForm = new HomePage(fullName);
                     mainForm.Show();
                     this.Hide();
                 }
@@ -91,6 +93,7 @@ namespace BankAccountSystem
                 {
                     MessageBox.Show("Invalid username/email or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
             }
             catch (Exception ex)
             {
